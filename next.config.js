@@ -9,11 +9,11 @@ module.exports = {
     },
     const getStyleLoaders = (cssOptions, preProcessor) => {
         const loaders = [
-            
+
         ]
     }
     devIndicators: {
-        autoPrerender: false,
+        autoPrerender: false
     },
 
 }
