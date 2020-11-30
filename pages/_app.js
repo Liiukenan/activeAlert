@@ -1,13 +1,21 @@
-// import '../styles/globals.css'
-import React, { useState, useEffect } from 'react';
+import './css/base.styl'
+import React, { useState, useEffect } from 'react'
 function MyApp({ Component, pageProps }) {
-   const setRem = async ()=>{
-        await require('lib-flexible')
-    }
-    useEffect(()=>{
-        setRem()
-        window.addEventListener('resize',setRem)
-    })
+  const setRem = async () => {
+    await require('lib-flexible')
+  }
+
+  useEffect(() => {  
+    setRem()
+    window.addEventListener('resize', setRem)
+    document.body.addEventListener(
+      'touchmove',
+      function (e) {
+        e.preventDefault()
+      },
+      { passive: false }
+    )
+  })
   return <Component {...pageProps} />
 }
 

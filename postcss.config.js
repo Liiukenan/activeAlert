@@ -2,7 +2,7 @@ const pxtorem = require("postcss-pxtorem");
 module.exports = {
   plugins: [
     pxtorem({
-      rootValue: 136,//我这里配置的是我1366分辨率下的基准值，会在下面解释
+      rootValue: 36,//我这里配置的是我1366分辨率下的基准值，会在下面解释
       unitPrecision: 5,
       propList: ["*"],
       selectorBlackList: [/^\.nop2r/, /^\.am/,'html'],
