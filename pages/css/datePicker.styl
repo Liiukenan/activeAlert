@@ -1,24 +1,61 @@
-
-.horizontal-container {
+.datePickers {
+    .report-date-title {
+        height: 58px;
+    }
     .scroll-wrapper {
-        width: 8rem;
-        margin: 80px auto;
-        border: 3px solid #42b983;
-        border-radius: 5px;
+        width: 100%;
         overflow: hidden;
-        display:flex
-        flex-direction:row-reverse;
+        display: flex;
+        flex-direction: row-reverse;
+        white-space nowrap
         .scroll-content {
             display: inline-block;
-            
         }
         .scroll-item {
-            height: 50px;
-            line-height: 50px;
-            font-size: 24px;
             display: inline-block;
             text-align: center;
-            padding: 0 10px;
+            margin 0 10px
+            div{
+                color: #fff
+                width: 32px
+                height: 30px
+                line-height: 30px
+            }
+            .date-title{
+                border-radius:8px 8px 0 0
+                border-bottom: none
+                color: rgba(0,0,0,0.80);
+            }
+            .date-content{
+                border-radius:0 0 8px 8px
+                
+                
+                color: rgba(0,0,0,0.80);
+            }
+            .weekly{
+                .date-title{
+                    width: 78px
+                    background: #ddd
+                    
+                    border: 1px solid #D5D5D5;
+                }
+                .date-content{
+                    border: 1px solid #D5D5D5;
+                    border-top: none
+                }
+            }
+        }
+        .active{
+            .date-title{
+                background: #CA16FF;
+                border-radius:8px 8px 0 0
+                border: none 
+            }
+            .date-content{
+                background:#D246FB;
+                border-radius:0 0 8px 8px
+                border: none 
+            }
         }
     }
 }

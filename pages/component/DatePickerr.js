@@ -3,9 +3,6 @@ import '../css/datepicker.styl'
 function datePicker() {
   return (
     <div className="date-picker">
-      <div className="report-date-title flex-items-center fs-16 pl-24">
-        December, <span className="fc-hui6 ml-4">2020</span>
-      </div>
       <div className="date-list">
         <div className="date-box">
           <ul className="date-main fs-12">
