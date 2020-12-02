@@ -1,13 +1,10 @@
-import React, { useEffect,useRef } from 'react'
+import React from 'react'
 import DatePicker from './component/DatePicker'
 import DetailList from './component/DetailList';
 import Layout from './component/Layout';
 import Receive from './component/Receive';
 import './css/report.styl'
 function Report() {
-        const scroll=useRef();
-        useEffect(() => {
-        }, []);
         return (
             <Layout>
                 <div className="report">

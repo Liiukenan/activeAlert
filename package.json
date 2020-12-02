@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@zeit/next-stylus": "^1.0.1",
+    "ahooks": "^2.9.1",
+    "axios": "^0.21.0",
     "better-scroll": "^2.0.6",
     "dotenv": "^8.2.0",
     "lib-flexible": "^0.3.2",
@@ -22,6 +24,8 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
+    "eslint": "^7.14.0",
+    "eslint-plugin-react": "^7.21.5",
     "postcss-pxtorem": "^5.1.1"
   }
 }

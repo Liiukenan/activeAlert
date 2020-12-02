@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import util from '../common/util'
-import Head from 'next/head'
 import './css/home.styl'
 import Lottie from 'react-lottie'
 import * as animationData from './lottie/animation_bg.json'
 import * as goData from './lottie/btn_go.json'
-import servicePath from '../config/servicePath'
 
 function Home(props) {
   const [btnAnimate, setBtn] = useState('btn') //设置按钮类
@@ -66,7 +64,6 @@ function Home(props) {
       }, 1000)
     }
   }, [btnAnimate])
-  let result = time ? time : { startTs: 0, endTs: 0 }
   return (
     <div className="main">
       <div className="home">
