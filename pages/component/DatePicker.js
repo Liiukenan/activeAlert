@@ -6,6 +6,7 @@ function datePicker(props) {
   const scroll = useRef()
   const [dateList, setDateList] = useState([])
   const getData = () => {
+    // 获取日期数据
     return new Promise(() => {
       axios
         .post(
@@ -26,8 +27,11 @@ function datePicker(props) {
         })
     })
   }
-
-
+  const fliterWeek=(date)=>{
+    //过滤日期
+    const arr=['Sun','Mon','Tus','Thi','Fou','Fri','Sat']
+    return arr[date]
+  }
   // 点击选择日期
   const handleClickDate = (index) => {
     dateData.forEach((item) => {
@@ -51,14 +55,13 @@ function datePicker(props) {
         }}
         key={index}
       >
-        <div className="date-title"> {item.name}</div>
+        <div className="date-title"> {fliterWeek(new Date(item.date).getDay())}</div>
         <div className="date-content">
           {(index + 1) % 8 === 0 ? '11/30~12/07' : (index + 1) % 8}
         </div>
       </div>
     )
   })
-  // const list=''
   return (
     <div className="datePickers">
       <div className="report-date-title flex-items-center fs-16 pl-24">
