@@ -137,11 +137,9 @@ function datePicker(props) {
   const [dateList, setDateList] = useState(dateData);
   const [aa,setaa]=useState('1234')
   function getData() {
-    // console.log(props)
-    // setaa(props.desc)
-    // axios.post('https://www.fastmock.site/mock/348b3d6d2caee5a41791c6b57688ac48/hiyya/list',{username:'admin',password:'123456'}).then(res => {
-    //   setaa( res.data.desc)
-    // });
+    axios.post('https://www.fastmock.site/mock/348b3d6d2caee5a41791c6b57688ac48/hiyya/list',{todayTime:1606914592000}).then(res => {
+      setaa( res.data.desc)
+    });
   }
   
   
@@ -183,6 +181,7 @@ function datePicker(props) {
       </div>
     )
   })
+  console.log(props)
   return (
     <div className="datePickers">
     
@@ -195,10 +194,4 @@ function datePicker(props) {
     </div>
   )
 }
-// datePicker.getInitialProps = async () => {
-//   const res = await axios.post('https://www.fastmock.site/mock/348b3d6d2caee5a41791c6b57688ac48/hiyya/list',{username:'admin',password:'123456'});
-//   return {
-//     data:res
-//   };
-// };
 export default datePicker
