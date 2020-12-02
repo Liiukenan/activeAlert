@@ -8,13 +8,49 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {  
     setRem()
     window.addEventListener('resize', setRem)
-    document.body.addEventListener(
-      'touchmove',
-      function (e) {
-        e.preventDefault()
-      },
-      { passive: false }
-    )
+
+
+     // 阻止双击放大
+     var lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+      var now = (new Date()).getTime();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, false);
+    
+    window.addEventListener(
+      "touchmove",
+      function(event) {
+        if(event.scale !== 1) {
+          event.preventDefault();
+        }
+      }, {
+        passive: false
+      }
+    );
+
+     // 禁用双指手势操作
+     window.addEventListener('gesturestart', function (event) {
+      event.preventDefault();
+    });
+    window.addEventListener('gesturechange', function (event) {
+      event.preventDefault();
+    });
+    window.addEventListener('gestureend', function (event) {
+      event.preventDefault();
+    });
+    
+
+
+
+
+
+     
+ 
+
+    
   })
   return <Component {...pageProps} />
 }

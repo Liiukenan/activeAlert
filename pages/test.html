@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1, user-scalable=no">
+ <title>禁止移动端某些浏览器缩放</title>
+</head>
+
+<body>
+ <div>孙琪峥博客<br>www.sunqizheng.com<br/>用两个手指试下，不能缩放哦!</div>
+ <style>
+ * {
+ padding: 0;
+ margin: 0;
+ }
+
+html,
+ body {
+ width: 100%;
+ height: 100%;
+ }
+
+div {
+ width: 70%;
+ height: 30%;
+ background: orange;
+ color: white;
+ text-align: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 5vw;
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ transform: translate(-50%, -50%);
+ }
+ </style>
+
+<script type="text/javascript">
+//解决safari自带放大功能：阻止双击放大
+var lastTime = 0;
+document.addEventListener('touchstart', function(event) {
+    if (event.touches.length > 1) {
+        event.preventDefault();
+    }
+});
+document.addEventListener('touchend', function(event) {
+    var nowTime = (new Date()).getTime();
+    if (nowTime - lastTime <= 300) {
+        event.preventDefault();
+    }
+    lastTime = nowTime;
+}, false);
+
+// 解决safari自带放大功能：阻止双指放大
+document.addEventListener('gesturestart', function(event) {
+    event.preventDefault();
+});
+
+ </script>
+ 
+</body>
+
+</html>

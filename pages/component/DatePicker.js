@@ -3,6 +3,7 @@ import BScroll from '@better-scroll/core'
 import '../css/datePicker.styl'
 function datePicker() {
   const scroll = useRef()
+  
   let dateData=[
     {
       name:'Mon',

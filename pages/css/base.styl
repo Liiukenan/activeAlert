@@ -31,9 +31,12 @@ a, a:hover, a:active, a:visited, a:link, a:focus {
 }
 
 * {
+    -webkit-touch-callout: none; /* 系统默认菜单被禁用 */
+    -webkit-user-select: none; /* webkit浏览器 */
+    -khtml-user-select: none; /* 早期浏览器 */
+    -moz-user-select: none; /* 火狐 */
+    -ms-user-select: none; /* IE10 */
     user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-touch-callout: none;
 }
 
 html, body {
@@ -41,6 +44,8 @@ html, body {
     height: auto;
     text-size-adjust: none;
     overflow-scrolling: touch;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .ar {
@@ -518,8 +523,36 @@ button {
     margin-left: 5px;
 }
 
+.ml-6 {
+    margin-left: 6px;
+}
+
+.ml-7 {
+    margin-left: 7px;
+}
+
+.ml-8 {
+    margin-left: 8px;
+}
+
+.ml-9 {
+    margin-left: 9px;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.ml-12 {
+    margin-left: 12px;
+}
+
 .ml-13 {
     margin-left: 13px;
+}
+
+.ml-14 {
+    margin-left: 14px;
 }
 
 .ml-15 {
@@ -538,28 +571,12 @@ button {
     margin-left: 18px;
 }
 
-.ml-6 {
-    margin-left: 6px;
-}
-
-.ml-8 {
-    margin-left: 8px;
-}
-
-.ml-9 {
-    margin-left: 9px;
-}
-
-.ml-10 {
-    margin-left: 10px;
-}
-
-.ml-17 {
-    margin-left: 17px;
-}
-
 .ml-20 {
     margin-left: 20px;
+}
+
+.ml-23 {
+    margin-left: 23px;
 }
 
 .ml-24 {
@@ -578,32 +595,64 @@ button {
     margin-top: 1px;
 }
 
-.mt-7 {
-    margin-top: 7px;
+.mt-2 {
+    margin-top: 2px;
 }
 
-.mt-15 {
-    margin-top: 15px;
-}
-
-.mt-6 {
-    margin-top: 6px;
-}
-
-.mt-5 {
-    margin-top: 5px;
+.mt-3 {
+    margin-top: 3px;
 }
 
 .mt-4 {
     margin-top: 4px;
 }
 
-.mt-2 {
-    margin-top: 2px;
+.mt-5 {
+    margin-top: 5px;
+}
+
+.mt-6 {
+    margin-top: 6px;
+}
+
+.mt-7 {
+    margin-top: 7px;
 }
 
 .mt-8 {
     margin-top: 8px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-12 {
+    margin-top: 12px;
+}
+
+.mt-14 {
+    margin-top: 14px;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mt-16 {
+    margin-top: 16px;
+}
+
+.mt-18 {
+    margin-top: 18px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-22 {
+    margin-top: 22px;
 }
 
 .mt-24 {
@@ -622,92 +671,41 @@ button {
     margin-top: 28px;
 }
 
-.mt-22 {
-    margin-top: 22px;
-}
-
-.mt-20 {
-    margin-top: 20px;
-}
-
-.mt-3 {
-    margin-top: 3px;
-}
-
-.mt-32 {
-    margin-top: 32px;
-}
-
-.mt-34 {
-    margin-top: 34px;
-}
-
-.mt-36 {
-    margin-top: 36px;
-}
-
-.mt-38 {
-    margin-top: 38px;
-}
-
-.mt-12 {
-    margin-top: 12px;
-}
-
-.mt-10 {
-    margin-top: 10px;
-}
-
-.mt-18 {
-    margin-top: 18px;
-}
-
-.mt-16 {
-    margin-top: 16px;
-}
-
-.mt-14 {
-    margin-top: 14px;
-}
-
-.mt-48 {
-    margin-top: 48px;
-}
-
-.mt-40 {
-    margin-top: 40px;
-}
-
 .mt-30 {
     margin-top: 30px;
 }
 
-.ml-40 {
-    margin-left: 40px;
+// 右边距
+.mr-1 {
+    margin-right: 1px;
 }
 
-.ml-16 {
-    margin-left: 16px;
+.mr-3 {
+    margin-right: 3px;
 }
 
-.ml-12 {
-    margin-left: 12px;
+.mr-4 {
+    margin-right: 4px;
 }
 
-.ml-14 {
-    margin-left: 14px;
+.mr-5 {
+    margin-right: 5px;
 }
 
-.ml-4 {
-    margin-left: 4px;
+.mr-6 {
+    margin-right: 6px;
 }
 
-.mr-40 {
-    margin-right: 40px;
+.mr-8 {
+    margin-right: 8px;
 }
 
-.mr-24 {
-    margin-right: 24px;
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mr-12 {
+    margin-right: 12px;
 }
 
 .mr-15 {
@@ -716,6 +714,10 @@ button {
 
 .mr-16 {
     margin-right: 16px;
+}
+
+.mr-24 {
+    margin-right: 24px;
 }
 
 .mr-28 {
@@ -732,38 +734,6 @@ button {
 
 .mr-20 {
     margin-right: 20px;
-}
-
-.mr-12 {
-    margin-right: 12px;
-}
-
-.mr-1 {
-    margin-right: 1px;
-}
-
-.mr-8 {
-    margin-right: 8px;
-}
-
-.mr-5 {
-    margin-right: 5px;
-}
-
-.mr-6 {
-    margin-right: 6px;
-}
-
-.mr-4 {
-    margin-right: 4px;
-}
-
-.mr-3 {
-    margin-right: 3px;
-}
-
-.mr-10 {
-    margin-right: 10px;
 }
 
 .mb-10 {
@@ -790,10 +760,7 @@ button {
     margin-bottom: 5px;
 }
 
-.text-left {
-    text-align: left;
-}
-
+// 文字设置
 .text-center {
     text-align: center;
 }
@@ -858,15 +825,6 @@ button {
     flex-direction: row-reverse;
 }
 
-/* 定位 */
-.position-absolute {
-    position: absolute;
-}
-
-.position-relative {
-    position: relative;
-}
-
 /* 显示隐藏 */
 .hide {
     display: none;
@@ -882,13 +840,4 @@ button {
 
 .flex {
     display: flex;
-}
-
-.btn {
-    transition: all 0.26s ease-in-out;
-    transform: scale(1);
-}
-
-.btn:active {
-    transform: scale(0.85);
 }
