@@ -1,148 +1,33 @@
-import React, { useRef, useState,useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import BScroll from '@better-scroll/core'
 import '../css/datePicker.styl'
 import axios from 'axios'
 function datePicker(props) {
   const scroll = useRef()
-  let dateData = [
-    {
-      name: 'Mon',
-      checked: false
-    },
-    {
-      name: 'Tus',
-      checked: false
-    },
-    {
-      name: 'Thi',
-      checked: false
-    },
-    {
-      name: 'Fou',
-      checked: false
-    },
-    {
-      name: 'Fri',
-      checked: false
-    },
-    {
-      name: 'Sat',
-      checked: false
-    },
-    {
-      name: 'Sun',
-      checked: false
-    },
-    {
-      name: 'Weekly Report',
-      checked: false
-    },
-    {
-      name: 'Mon',
-      checked: false
-    },
-    {
-      name: 'Tus',
-      checked: false
-    },
-    {
-      name: 'Thi',
-      checked: false
-    },
-    {
-      name: 'Fou',
-      checked: false
-    },
-    {
-      name: 'Fri',
-      checked: false
-    },
-    {
-      name: 'Sat',
-      checked: false
-    },
-    {
-      name: 'Sun',
-      checked: false
-    },
-    {
-      name: 'Weekly Report',
-      checked: false
-    },
-    {
-      name: 'Mon',
-      checked: false
-    },
-    {
-      name: 'Tus',
-      checked: false
-    },
-    {
-      name: 'Thi',
-      checked: false
-    },
-    {
-      name: 'Fou',
-      checked: false
-    },
-    {
-      name: 'Fri',
-      checked: false
-    },
-    {
-      name: 'Sat',
-      checked: false
-    },
-    {
-      name: 'Sun',
-      checked: false
-    },
-    {
-      name: 'Weekly Report',
-      checked: false
-    },
-    {
-      name: 'Mon',
-      checked: false
-    },
-    {
-      name: 'Tus',
-      checked: false
-    },
-    {
-      name: 'Thi',
-      checked: false
-    },
-    {
-      name: 'Fou',
-      checked: false
-    },
-    {
-      name: 'Fri',
-      checked: false
-    },
-    {
-      name: 'Sat',
-      checked: false
-    },
-    {
-      name: 'Sun',
-      checked: false
-    },
-    {
-      name: 'Weekly Report',
-      checked: false
-    }
-  ]
-  const [dateList, setDateList] = useState(dateData);
-  const [aa,setaa]=useState('1234')
-  function getData() {
-    axios.post('https://www.fastmock.site/mock/348b3d6d2caee5a41791c6b57688ac48/hiyya/list',{todayTime:1606914592000}).then(res => {
-      setaa( res.data.desc)
-    });
+  const [dateList, setDateList] = useState([])
+  const getData = () => {
+    return new Promise(() => {
+      axios
+        .post(
+          'https://www.fastmock.site/mock/348b3d6d2caee5a41791c6b57688ac48/hiyya/list',
+          { todayTime: 1606914592000 }
+        )
+        .then((res) => {
+          setDateList(res.data.data.dataList)
+          setTimeout(()=>{
+             // 初始化日期
+              new BScroll(scroll.current, {
+                scrollX: true,
+                probeType: 3,
+                bounce: true,
+                click: true
+              })
+          })
+        })
+    })
   }
-  
-  
+
+
   // 点击选择日期
   const handleClickDate = (index) => {
     dateData.forEach((item) => {
@@ -152,17 +37,9 @@ function datePicker(props) {
     setDateList(JSON.parse(JSON.stringify(dateData)))
   }
   useEffect(() => {
-    getData()
-    // 初始化日期
-    setTimeout(() => {
-      new BScroll(scroll.current, {
-        scrollX: true,
-        probeType: 3,
-        bounce: true,
-        click: true
-      })
-    })
-  },[])
+    getData();
+
+  }, [])
   const list = dateList.map((item, index) => {
     return (
       <div
@@ -181,12 +58,11 @@ function datePicker(props) {
       </div>
     )
   })
-  console.log(props)
+  // const list=''
   return (
     <div className="datePickers">
-    
       <div className="report-date-title flex-items-center fs-16 pl-24">
-        December, <span className="fc-hui6 ml-4">2020 {aa}</span>
+        December, <span className="fc-hui6 ml-4">2020</span>
       </div>
       <div className="scroll-wrapper" ref={scroll}>
         <div className="scroll-content fs-12">{list}</div>
