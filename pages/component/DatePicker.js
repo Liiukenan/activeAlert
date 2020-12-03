@@ -14,7 +14,19 @@ function datePicker(props) {
           { todayTime: 1606914592000 }
         )
         .then((res) => {
-          setDateList(res.data.data.dataList)
+          let dataArr=res.data.data.dataList;
+          dataArr.forEach((item,index) => {
+            if(new Date(item.date).getDay()==0){
+              dataArr.splice(index+1,0,{date:"week"})
+            }
+          });
+          dataArr.forEach((item,index)=>{
+            item.checked=false;
+            if(index===dataArr.length - 1){
+              item.checked=true;
+            }
+          })
+          setDateList(dataArr)
           setTimeout(()=>{
              // 初始化日期
               new BScroll(scroll.current, {
@@ -29,35 +41,38 @@ function datePicker(props) {
   }
   const fliterWeek=(date)=>{
     //过滤日期
+    if(date===8){
+      return 'Weekly Report'
+    }
     const arr=['Sun','Mon','Tus','Thi','Fou','Fri','Sat']
     return arr[date]
   }
   // 点击选择日期
   const handleClickDate = (index) => {
-    dateData.forEach((item) => {
+    dateList.forEach((item) => {
       item.checked = false
     })
-    dateData[index].checked = true
-    setDateList(JSON.parse(JSON.stringify(dateData)))
+    dateList[index].checked = true
+    
+    setDateList(JSON.parse(JSON.stringify(dateList)))
   }
   useEffect(() => {
     getData();
-
   }, [])
   const list = dateList.map((item, index) => {
     return (
       <div
-        className={`scroll-item ${(index + 1) % 8 === 0 ? 'weekly' : ''} ${
-          item.checked ? 'active' : ''
+        className={`scroll-item ${item.date==='week' ? 'weekly' : ''} ${
+          item.checked  ? 'active' : ''
         }`}
         onClick={() => {
           handleClickDate(index)
         }}
         key={index}
       >
-        <div className="date-title"> {fliterWeek(new Date(item.date).getDay())}</div>
+        <div className="date-title"> {item.date!=="week"?fliterWeek(new Date(item.date).getDay()):fliterWeek(8)}</div>
         <div className="date-content">
-          {(index + 1) % 8 === 0 ? '11/30~12/07' : (index + 1) % 8}
+          {item.date==='week' ? '11/30~12/07' : new Date(item.date).getDate()}
         </div>
       </div>
     )
